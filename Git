@@ -1,0 +1,73 @@
+----------------------------------------------------------------------------------------------------
+Git
+----------------------------------------------------------------------------------------------------
+[Conventions]
+	Extensions alone will be written as .<ExtensionLetters>.
+	E.g.
+		.TAR
+		.ZIP
+		.EXE
+
+[Placeholders - Variables]
+	<STRING_Name>
+		Name of Type STRING
+		E.g.
+		"Anshuman Yadav"
+
+[Resources]
+	https://alvinalexander.com/git/git-cheat-sheet-git-reference-commands
+	https://csswizardry.com/2017/05/little-things-i-like-to-do-with-git/
+	Repository Explorer
+		http://gitlist.org/
+
+
+
+
+
+
+
+
+[Display UserName]
+	[Global]
+		Stored in "~/.gitconfig".
+		> git config user.name
+		> git config --list
+	[PerProject]
+		??
+[Change UserName]
+	[Global]
+		> git config --global user.name <STRING_Name>
+		E.g.
+			> git config --global user.name "Alvin J. Alexander"
+	[PerProject]
+		> git config user.name <STRING_Name>
+
+
+
+[Display Email]
+	> git config user.email
+[Change Email]
+	> git config --global user.email [your email address here]
+
+
+
+[Stop Tracking File]
+	Files remain on Disk, but Git doesn't track them any more.
+	May still keep the files in the history, and completely removing them is a more difficult problem.
+	> git rm --cached <filenames>
+	E.g.
+		\* is used in the following to Escape the Asterisk, used to include all files in that directory.
+		> git rm --cached bin/com/devdaily/sarah/\*
+		> git rm --cached bin/Foo.class
+		> git rm --cached src/main/resources/\*
+		> git rm --cached target/scala-2.9.1/classes/\*
+		> git rm --cached target/streams/\$global/compilers/\$global/out
+		> git rm --cached target/\*
+
+
+[Export a Project]
+	Move into the root of the Project Directory, and execute the following command.
+	Default Output is a .TAR file.
+	Directories/Files in ".gitignore" will not be included in archive.
+	See this: file:///C:/Users/Anshu/Downloads/PortableGit/mingw64/share/doc/git-doc/git-archive.html
+	> git archive master | gzip > latest.tgz
